@@ -10,7 +10,7 @@ export class Auth {
   public async signUp(req, res) {
     try {
       const { email, password } = req.body;
-      this.authService.signUp(email, password);
+      await this.authService.signUp(email, password);
     } catch (error) {}
   }
 }

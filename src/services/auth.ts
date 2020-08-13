@@ -3,8 +3,10 @@ import { AuthRepository } from './../repositories/auth';
 export class AuthService {
   constructor(private authRepository: AuthRepository, private cryptoHelper: CryptoHelper) {}
 
-  public signIn(email, paswword) {
-    const user = this.authRepository.findByEmail(email);
+  public async signIn(email: string, password: string) {
+    const user = await this.authRepository.findByEmail(email);
+    if (this.cryptoHelper.comparePasswords(user.password, password)) {
+    }
   }
 
   public signUp(email, password) {}

@@ -59,6 +59,14 @@ export class Model {
     return result;
   }
 
+  public fill(values: { [key: string]: any }) {
+    Object.keys(values).forEach((key) => {
+      if (key !== '_id') {
+        this[key] = values[key];
+      }
+    });
+  }
+
   public save() {
     return Model.db.save(this);
   }
