@@ -1,4 +1,4 @@
-import { User } from './user';
+import { User } from './user.model';
 import { Entity, PrimaryGeneratedColumn, Column, JoinColumn, OneToOne } from 'typeorm';
 import { Model } from './model';
 

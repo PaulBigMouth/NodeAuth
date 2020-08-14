@@ -1,8 +1,9 @@
-import { User } from './../models/user';
-import { Token } from './../models/token';
+import { User } from '../models/user.model';
+import { Token } from '../models/token.model';
 import { v4 as uuidv4 } from 'uuid';
+import token from '../services/token.service';
 
-export class TokenRepository {
+class TokenRepository {
   public async createToken(user: User): Promise<Token | Error> {
     try {
       await this.findAndRemoveToken(user.id);
@@ -33,3 +34,5 @@ export class TokenRepository {
     }
   }
 }
+
+export default new TokenRepository();
